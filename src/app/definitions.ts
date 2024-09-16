@@ -1,5 +1,6 @@
 export type Response = {
-    Response: boolean,
+    Response: "True" | "False",
+    Error: string,
     Search?: Movie[],
     totalResults?: string
 }
