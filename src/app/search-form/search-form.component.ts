@@ -7,7 +7,6 @@ import { Response } from '../definitions';
   selector: 'app-search-form',
   standalone: true,
   imports: [FormsModule],
-  providers: [SearchFormService],
   templateUrl: './search-form.component.html',
   styleUrl: './search-form.component.scss'
 })

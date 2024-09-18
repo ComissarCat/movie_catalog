@@ -1,0 +1,16 @@
+@if(pages.length > 1) {
+<nav class="navbar" aria-label="Page navigation example">
+    <div class="container-fluid justify-content-center">
+        <ul class="pagination">
+            <li class="page-item"><button class="page-link" href="#">Previous</button></li>
+            @for(p of pages; track $index) {
+            <li class="page-item">
+                <button class="page-link" (click)=changePage(p)>{{p}}</button>
+            </li>
+            }
+            <li class="page-item"><button class="page-link" href="#">Next</button></li>
+        </ul>
+    </div>
+</nav>
+<p>Response:{{response.totalResults}}</p>
+}

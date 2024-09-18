@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { SearchFormComponent } from './search-form/search-form.component';
 import { MovieGalleryComponent } from './movie-gallery/movie-gallery.component';
 import { Response } from './definitions';
+import { SearchFormService } from './search-form/search-form.service';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,12 @@ import { Response } from './definitions';
 export class AppComponent {
   public moviesData?: Response;
 
-  loadMovies(response: Response) {
+  constructor(private searchFormService:SearchFormService) { 
+    this.searchFormService.onMessage().subscribe(response=>this.loadMovies(response));
+  }
+
+  loadMovies(response: Response|null) {
+    if(!response) return;
     this.moviesData = response;
   }
 }
